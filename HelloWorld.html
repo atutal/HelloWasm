@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="target/HelloWasm-1.0.wasm.js"></script>
+  <title>HelloWasm</title>
+</head>
+<body>
+<script>
+    WebAssembly.instantiateStreaming(fetch('target/HelloWasm-1.0.wasm'), wasmImports)
+        .then(obj => obj.instance.exports.main())
+        .catch((err) => document.write(err + '<p>Missing <a href="https://github.com/i-net-software/JWebAssembly/wiki/browser">Browser Support</a>'));
+</script>
+</body>
+</html>
